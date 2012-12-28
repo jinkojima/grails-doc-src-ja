@@ -34,7 +34,7 @@ book = Book.findByTitleLikeOrReleaseDateLessThan("%Something%", someDate)
 {code}
 
 {hidden}h4. Method Expressions{hidden}
-h4. メソッド表現方式
+h4. メソッド表現方式によるメソッド名の指定
 
 {hidden}A method expression in GORM is made up of the prefix such as [findBy|domainClasses] followed by an expression that combines one or more properties. The basic form is:{hidden}
 GORMでは、[findBy|domainClasses] に続けて1つ以上のプロパティ名を組み合わせたメソッド名の形式で呼び出す事により、特定のプロパティに対して検索をかけることができます。基本的な書式は以下の通りです。:
@@ -44,7 +44,7 @@ Book.findBy([Property][Comparator][Boolean Operator])?[Property][Comparator]
 {code}
 
 {hidden}The tokens marked with a '?' are optional. Each comparator changes the nature of the query. For example:{hidden}
-'?' 以降はオプションとなります。比較演算子(comparator)。以下はその例になります。:
+'?' 以降はオプションとなります。比較演算子によって、自然な文体でクエリーを書く事が出来るようになります。以下はその例です。:
 
 {code}
 def book = Book.findByTitle("The Stand")
@@ -118,9 +118,11 @@ def books = Book.findAllByTitleLikeOrReleaseDateGreaterThan(
 {hidden}You can combine as many criteria as you like, but they must all be combined with @And@ or all @Or@. If you need to combine @And@ and @Or@ or if the number of criteria creates a very long method name, just convert the query to a [Criteria|guide:criteria] or [HQL|guide:hql] query.{hidden}
 GORMでは、好きなだけのクライテリアを @And@ や @Or@ を使用して結合することができます。また、メソッド名があまりにも長くなりすぎてしまったときは、クエリーを [Criteria|guide:criteria] や [HQL|guide:hql] に変換することもできます。
 
-h4. Querying Associations
+{hidden}h4. Querying Associations{hidden}
+h4. クエリーと関連
 
-Associations can also be used within queries:
+{hidden}Associations can also be used within queries:{hidden}
+ドメインクラス同士の関連はクエリーの中でも利用することが出来ます。:
 
 {code}
 def author = Author.findByName("Stephen King")
@@ -128,11 +130,14 @@ def author = Author.findByName("Stephen King")
 def books = author ? Book.findAllByAuthor(author) : []
 {code}
 
-In this case if the @Author@ instance is not null we use it in a query to obtain all the @Book@ instances for the given @Author@.
+{hidden}In this case if the @Author@ instance is not null we use it in a query to obtain all the @Book@ instances for the given @Author@.{hidden}
+上記のようなケースでは、@Author@ インスタンスがNullの場合は空の集合を返し、そうでない場合はパラメータに指定した @Author@ が持つ全ての @Book@ インスタンスを取得します。
 
-h4. Pagination and Sorting
+{hidden}h4. Pagination and Sorting{hidden}
+h4. ページングとソート
 
-The same pagination and sorting parameters available on the [list|domainClasses] method can also be used with dynamic finders by supplying a map as the final parameter:
+{hidden}The same pagination and sorting parameters available on the [list|domainClasses] method can also be used with dynamic finders by supplying a map as the final parameter:{hidden}
+ダイナミックファインダーのパラメータの末尾に追加のパラメータを指定する事で、ページングとソートを行うことが出来ます。:
 
 {code}
 def books = Book.findAllByTitleLike("Harry Pot%",
