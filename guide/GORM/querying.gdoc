@@ -9,9 +9,9 @@ GORMはダイナミックファインダーやHibernateのオブジェクト指�
 {hidden}
 
 * ダイナミックファインダー
-* Where クエリ
-* Criteria クエリ
-* Hibernate Query Language (HQL)
+* Whereクエリー
+* クライテリアクエリー
+* Hibernateクエリー言語 (HQL)
 
 {hidden}In addition, Groovy's ability to manipulate collections with "GPath":http://groovy.codehaus.org/GPath and methods like sort, findAll and so on combined with GORM results in a powerful combination.{hidden}
 さらに、Groovyの機能であるコレクション操作機能 "GPath":http://groovy.codehaus.org/Japanese+GPath と、GORMの持つsortやfindAllなどのメソッドの組み合わせは、すばらしい結果をもたらします。
@@ -23,14 +23,14 @@ GORMはダイナミックファインダーやHibernateのオブジェクト指�
 h4. インスタンスの一覧取得
 
 {hidden}Use the [list|domainClasses] method to obtain all instances of a given class:{hidden}
-対象のクラスのすべてのインスタンスを取得するには、[list|domainClasses] を使います。:
+対象のクラスのすべてのインスタンスを取得するには、[list|domainClasses]を使います。:
 
 {code}
 def books = Book.list()
 {code}
 
 {hidden}The [list|domainClasses] method supports arguments to perform pagination:{hidden}
-以下の様に、[list|domainClasses] メソッドは、行数を指定するための引数をサポートします。:
+以下の様に、[list|domainClasses]メソッドは、行数を指定するための引数をサポートします。:
 
 {code}
 def books = Book.list(offset:10, max:20)
@@ -44,20 +44,20 @@ def books = Book.list(sort:"title", order:"asc")
 {code}
 
 {hidden}Here, the @sort@ argument is the name of the domain class property that you wish to sort on, and the @order@ argument is either @asc@ for *asc*ending or @desc@ for *desc*ending.{hidden}
-ここで、@sort@ はソート対象にしたいドメインクラスのプロパティを指定します。@order@ は @asc@ であれば昇順(*asc*ending)、@desc@ であれば降順(*desc*ending)となります。
+ここで、@sort@はソート対象にしたいドメインクラスのプロパティを指定します。@order@は@asc@であれば昇順(*asc*ending)、@desc@であれば降順(*desc*ending)となります。
 
 {hidden}h4. Retrieval by Database  Identifier{hidden}
 h4. データベースのIDによる取得
 
 {hidden}The second basic form of retrieval is by database identifier using the [get|domainClasses] method:{hidden}
-次に基本的な手段は、データベースのIDを利用して、[get|domainClasses] メソッドで取得する方法です。:
+次に基本的な手段は、データベースのIDを利用して、[get|domainClasses]メソッドで取得する方法です。:
 
 {code}
 def book = Book.get(23)
 {code}
 
 {hidden}You can also obtain a list of instances for a set of identifiers using [getAll|domainClasses]:{hidden}
-また、複数のIDの組み合わせ指定して [getAll|domainClasses] を使う事で、インスタンスの一覧を取得することもできます。:
+また、複数のIDの組み合わせを指定して[getAll|domainClasses]を使う事で、インスタンスの一覧を取得することもできます。:
 
 {code}
 def books = Book.getAll(23, 93, 81)
