@@ -1,5 +1,5 @@
 {hidden}GORM supports a number of powerful ways to query from dynamic finders, to criteria to Hibernate's object oriented query language HQL. Depending on the complexity of the query you have the following options in order of flexibility and power:{hidden}
-GORMはダイナミックファインダーやHibernateのオブジェクト指向クエリー言語HQLなど、便利で様々な方法を提供します。クエリーの複雑さを考慮して、以下のような選択肢から選択することができます。上位にある選択肢ほど柔軟性と利便性が高くなります。
+GORMはダイナミックファインダーやHibernateのオブジェクト指向クエリー言語HQLなど、多くの便利な方法を提供します。クエリーの複雑さを考慮して、以下のような選択肢から選択することができます。上位にある選択肢ほど柔軟性と利便性が高くなります。
 
 {hidden}
 * Dynamic Finders
@@ -50,7 +50,7 @@ def books = Book.list(sort:"title", order:"asc")
 h4. データベースのIDによる取得
 
 {hidden}The second basic form of retrieval is by database identifier using the [get|domainClasses] method:{hidden}
-次に基本的な手段は、データベースのIDを利用して、[get|domainClasses]メソッドで取得する方法です。:
+次の検索の基本形は、データベースのIDを利用して、[get|domainClasses]メソッドで取得する方法です。:
 
 {code}
 def book = Book.get(23)

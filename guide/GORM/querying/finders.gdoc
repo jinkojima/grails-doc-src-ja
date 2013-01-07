@@ -1,5 +1,5 @@
 {hidden}GORM supports the concept of *dynamic finders*. A dynamic finder looks like a static method invocation, but the methods themselves don't actually exist in any form at the code level.{hidden}
-GORM は *ダイナミックファインダー* のコンセプトをサポートしています。ダイナミックファインダーは静的メソッドの呼び出しのように利用できますが、対象クラスの実際のコード上にはそのようなコードは存在しません。
+GORMは*ダイナミックファインダー*のコンセプトをサポートしています。ダイナミックファインダーは静的メソッドの呼び出しのように利用できますが、対象クラスの実際のコード上にはそのようなコードは存在しません。
 
 {hidden}Instead, a method is auto-magically generated using code synthesis at runtime, based on the properties of a given class. Take for example the @Book@ class:{hidden}
 それどころか、そのメソッドは与えられたクラスのプロパティに応じ、コードの実行時に自動でコードが生成されます。以下に@Book@クラスの例をあげます。:
