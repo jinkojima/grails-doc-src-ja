@@ -1,11 +1,23 @@
+{hidden}
 Scaffolding lets you auto-generate a whole application for a given domain class including:
+{hidden}
+スカッフォルドは以下のドメインクラスを含んだ完全なアプリケーションを自動生成します。
 
+{hidden}
 * The necessary [views|guide:gsp]
 * Controller actions for create/read/update/delete (CRUD) operations
+{hidden}
+* 必要な[ビュー|guide:gsp]
+* 作成/参照/更新/削除 (CRUD)処理についてのコントローラアクション
 
+{hidden}
 h4. Dynamic Scaffolding
-
+{hidden}
+h4. 動的スカッフォルド
+{hidden}
 The simplest way to get started with scaffolding is to enable it with the @scaffold@ property. Set the @scaffold@ property in the controller to @true@ for the @Book@ domain class:
+{hidden}
+スカッフォルドを利用する一番シンプルな方法は@scaffold@プロパティを設定することです。以下は@Book@ドメインクラスのコントローラにて@scaffold@プロパティを@true@に設定しています。 
 
 {code:java}
 class BookController {
@@ -13,7 +25,10 @@ class BookController {
 }
 {code}
 
+{hidden}
 This works because the @BookController@ follows the same naming convention as the @Book@ domain class. To scaffold a specific domain class we could reference the class directly in the scaffold property:
+{hidden}
+これが動作するのは@BookController@が@Book@ドメインクラスと同じ命名規則に従っているためです。特定のドメインクラスに対してスカッフォルドを利用したい場合、以下の様に@scaffold@プロパティから直接そのクラスを参照させることも可能です。 
 
 {code:java}
 class SomeController {
@@ -21,7 +36,9 @@ class SomeController {
 }
 {code}
 
+{hidden}
 With this configured, when you start your application the actions and views will be auto-generated at runtime. The following actions are dynamically implemented by default by the runtime scaffolding mechanism:
+{hidden}
 
 * list
 * show
