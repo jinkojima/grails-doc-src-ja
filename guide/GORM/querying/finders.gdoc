@@ -78,7 +78,7 @@ book =  Book.findByTitleLike("Harry Pot%")
 * @GreaterThan@ - パラメータの値より大きい
 * @GreaterThanEquals@ - パラメータの値より大きいか、等しい
 * @Like@ - SQL文の Like句と同様
-* @Ilike@ - 上の @Like@ の同類だが、アルファベットの大文字と小文字の差を無視する
+* @Ilike@ - 上の@Like@の同類だが、アルファベットの大文字と小文字の差を無視する
 * @NotEqual@ - パラメータの値と等しくない
 * @Between@ - 2つの値の範囲内である (2つのパラメータが必要)
 * @IsNotNull@ - Nullではない (パラメータ不要)
