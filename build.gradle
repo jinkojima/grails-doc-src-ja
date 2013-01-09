@@ -12,8 +12,9 @@ ext._grailsHome = System.properties['grails.home'] ?: System.env['GRAILS_HOME'] 
 // -Dgrails.doc=$GRAILS_DOC_PROJECT_DIR
 ext.grailsDocProjectDir = file(System.properties["grails.doc"] ?: System.env["GRAILS_DOC_PROJECT_DIR"] ?: "../grails-doc")
 if (!grailsDocProjectDir.exists()) {
-    println "ERROR: The directory of grails-doc ${grailsDocProjectDir.path} not found."
-    return
+    println "WARN: The directory of grails-doc ${grailsDocProjectDir.path} not found."
+    execCommand(["git", "clone", "https://github.com/jggug/grails-doc.git"], new File(".."))
+    ext.grailsDocProjectDir = file("../grails-doc")
 }
 
 //----------------------------
@@ -32,7 +33,7 @@ buildscript {
         mavenRepo url: "http://repo.grails.org/grails/core"
     }
     dependencies {
-        classpath "org.grails:grails-docs:2.0.1"
+        classpath "org.grails:grails-docs:2.2.0"
     }
 }
 
@@ -58,3 +59,12 @@ task easyDocs_ja {
     dependsOn '_publishGuide_ja'
 }
 
+defaultTasks 'easyDocs_ja'
+
+//----------------------------
+// Helpers
+
+def execCommand(List command, File currentDir = null) {
+    println "Executing '${command.join(' ')}' at ${currentDir?.canonicalPath ?: 'current dir'} ..."
+    println command.execute([], currentDir).text
+}
